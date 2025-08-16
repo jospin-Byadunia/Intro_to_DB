@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS Orders (
     order_date DATE NOT NULL,
 );
 CREATE TABLE IF NOT EXISTS Order_Details(
-    order_detail_id SERIAL PRIMARY KEY,
+    order_detail_id INT PRIMARY KEY,
     FOREIGN KEY (order_id)  REFERENCES Orders(order_id),
     FOREIGN KEY (book_id)  REFERENCES Books(book_id),
     quantity DOUBLE,
