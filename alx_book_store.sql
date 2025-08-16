@@ -13,6 +13,9 @@ mycursor = mydb.cursor()
 
 mycursor.execute("DROP TABLE IF EXISTS Books, Authors, Customers, Orders, Order_Details")   
 
+#create database if it does not exist
+mycursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
+
 # Create tables
 mycursor.execute(""" 
 
