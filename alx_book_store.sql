@@ -1,23 +1,7 @@
-import mysql.connector
-
-# Connect to the MySQL database
-mydb = mysql.connector.connect(  
-    host="localhost",   
-    user="your_username",  
-    password="your_password",
-    database="alx_book_store"
-)
-
-# Create a cursor object
-mycursor = mydb.cursor()    
-
-mycursor.execute("DROP TABLE IF EXISTS Books, Authors, Customers, Orders, Order_Details")   
-
-#create database if it does not exist
-mycursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
-
-# Create tables
-mycursor.execute(""" 
+CREATE DATABASE IF NOT EXISTS alx_book_store
+USE alx_book_store;
+-- SQL schema for a book store database
+-- This schema includes tables for books, authors, customers, orders, and order details.
 
 CREATE TABLE IF NOT EXISTS Books (
     book_id INT PRIMARY KEY,
@@ -49,4 +33,4 @@ CREATE TABLE IF NOT EXISTS Order_Details(
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
     FOREIGN KEY (book_id) REFERENCES Books(book_id),
     quantity DOUBLE,
-);""")
+);
