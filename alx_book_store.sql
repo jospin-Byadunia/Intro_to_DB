@@ -20,15 +20,15 @@ mycursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
 mycursor.execute(""" 
 
 CREATE TABLE IF NOT EXISTS Books (
-    book_id SERIAL PRIMARY KEY,
+    book_id INT PRIMARY KEY,
     title VARCHAR(130) NOT NULL,
-    author_id INT REFERENCES Authors(author_id),
+    FOREIGN KEY (author_id)  REFERENCES Authors(author_id),
     price DOUBLE NOT NULL,
     publication_date DATE
 );
 
 CREATE TABLE IF NOT EXISTS Authors (
-    author_id SERIAL PRIMARY KEY,
+    author_id int PRIMARY KEY,
     author_name VARCHAR(215) NOT NULL,
 );
 
