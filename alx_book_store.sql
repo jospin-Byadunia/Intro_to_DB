@@ -41,12 +41,12 @@ CREATE TABLE IF NOT EXISTS Customers (
 
 CREATE TABLE IF NOT EXISTS Orders (
     order_id SERIAL PRIMARY KEY,
-    customer_id INT REFERENCES Customers(customer_id),
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
     order_date DATE NOT NULL,
 );
 CREATE TABLE IF NOT EXISTS Order_Details(
     order_detail_id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES Orders(order_id),
-    book_id INT REFERENCES Books(book_id),
+    FOREIGN KEY (order_id)  REFERENCES Orders(order_id),
+    FOREIGN KEY (book_id)  REFERENCES Books(book_id),
     quantity DOUBLE,
 );""")
